@@ -1,12 +1,14 @@
 package dai.springfw.pc.services.Map;
 
 import dai.springfw.pc.model.Owner;
-import dai.springfw.pc.services.CrudService;
+import dai.springfw.pc.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long>
-        implements CrudService<Owner, Long> {
+        implements OwnerService {
 
     @Override
     public Set<Owner> findALL() {
@@ -20,7 +22,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long>
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
@@ -34,5 +36,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long>
     }
 
 
-
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
+    }
 }

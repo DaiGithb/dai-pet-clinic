@@ -1,12 +1,14 @@
 package dai.springfw.pc.services.Map;
 
-import dai.springfw.pc.model.Owner;
 import dai.springfw.pc.model.Pet;
-import dai.springfw.pc.services.CrudService;
+import dai.springfw.pc.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long>
+        implements PetService {
 
     @Override
     public Set<Pet> findALL() {
@@ -20,7 +22,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
