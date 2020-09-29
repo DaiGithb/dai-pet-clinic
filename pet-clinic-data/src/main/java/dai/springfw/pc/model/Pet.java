@@ -1,13 +1,28 @@
 package dai.springfw.pc.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="pets")
 public class Pet extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
-    private PetType petType;
+
+    @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private PetType type;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
-    private LocalDate birthday;
 
     public String getName() {
         return name;
