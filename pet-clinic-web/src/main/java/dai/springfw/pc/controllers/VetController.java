@@ -21,4 +21,8 @@ public class VetController {
         return "vets/index";
     }
 
+    @RequestMapping("vets.html")
+    public String findVets(){
+        return "vets";
+    }
 }
