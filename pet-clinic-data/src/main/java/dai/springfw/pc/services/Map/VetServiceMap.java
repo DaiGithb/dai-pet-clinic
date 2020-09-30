@@ -1,7 +1,6 @@
 package dai.springfw.pc.services.Map;
 
 
-import dai.springfw.pc.model.Pet;
 import dai.springfw.pc.model.Speciality;
 import dai.springfw.pc.model.Vet;
 import dai.springfw.pc.services.SpecialityService;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long>
+public class VetServiceMap extends CommonMapService<Vet, Long>
         implements VetService {
 
     private final SpecialityService specialityService;

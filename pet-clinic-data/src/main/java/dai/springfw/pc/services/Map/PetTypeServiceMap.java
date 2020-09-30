@@ -8,7 +8,7 @@ import java.util.Set;
 
 
 @Service
-public class PetTypeServiceMap extends AbstractMapService<PetType, Long>
+public class PetTypeServiceMap extends CommonMapService<PetType, Long>
         implements PetTypeService {
 
     @Override
