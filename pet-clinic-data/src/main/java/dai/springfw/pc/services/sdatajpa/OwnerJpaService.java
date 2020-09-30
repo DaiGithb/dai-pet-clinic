@@ -2,14 +2,11 @@ package dai.springfw.pc.services.sdatajpa;
 
 import dai.springfw.pc.model.Owner;
 import dai.springfw.pc.repos.OwnerRepo;
-import dai.springfw.pc.repos.PetRepo;
-import dai.springfw.pc.repos.PetTypeRepo;
 import dai.springfw.pc.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -17,15 +14,10 @@ import java.util.Set;
 public class OwnerJpaService implements OwnerService {
 
     private final OwnerRepo ownerRepo;
-    private final PetRepo petRepo;
-    private final PetTypeRepo petTypeRepo;
 
-    public OwnerJpaService(OwnerRepo ownerRepo, PetRepo petRepo, PetTypeRepo petTypeRepo) {
+    public OwnerJpaService(OwnerRepo ownerRepo) {
         this.ownerRepo = ownerRepo;
-        this.petRepo = petRepo;
-        this.petTypeRepo = petTypeRepo;
     }
-
 
     @Override
     public Owner findByLastName(String lastName) {
