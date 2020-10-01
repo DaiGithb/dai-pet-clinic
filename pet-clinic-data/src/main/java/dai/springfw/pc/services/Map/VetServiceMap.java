@@ -5,11 +5,13 @@ import dai.springfw.pc.model.Speciality;
 import dai.springfw.pc.model.Vet;
 import dai.springfw.pc.services.SpecialityService;
 import dai.springfw.pc.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends CommonMapService<Vet, Long>
         implements VetService {
 

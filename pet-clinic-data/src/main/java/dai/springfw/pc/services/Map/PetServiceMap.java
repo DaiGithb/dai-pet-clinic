@@ -2,11 +2,13 @@ package dai.springfw.pc.services.Map;
 
 import dai.springfw.pc.model.Pet;
 import dai.springfw.pc.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetServiceMap extends CommonMapService<Pet, Long>
         implements PetService {
 
