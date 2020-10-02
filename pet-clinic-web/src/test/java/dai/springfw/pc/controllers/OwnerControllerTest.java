@@ -17,6 +17,7 @@ import java.util.Set;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.Mockito.*;
+import static org.springframework.data.repository.util.ClassUtils.hasProperty;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -58,4 +59,15 @@ class OwnerControllerTest {
         //assertEquals("owners/index", oc.findOwners());
         verifyZeroInteractions(os);
     }
+
+    @Test
+    void showOwners() throws Exception {
+        when(os.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+        mockMvc.perform(get("/owners/123"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"))
+                //.andExpect(model().attribute("owner", hasProperty("id", is(1L))))
+                .andExpect(model().attributeExists("owner"));
+    }
+
 }
